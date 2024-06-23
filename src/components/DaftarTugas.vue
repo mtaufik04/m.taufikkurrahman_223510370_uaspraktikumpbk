@@ -19,7 +19,6 @@
         <q-card-section class="q-pt-none">
           <q-card-title>
             Yah, Tugas Tidak Ada
-            <hr>
           </q-card-title>
         </q-card-section>
 
