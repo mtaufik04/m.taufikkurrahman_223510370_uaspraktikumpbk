@@ -87,7 +87,7 @@ onMounted(() => {
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  background-color: #595959;
+  background-color: transparent;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   overflow: hidden;
@@ -111,7 +111,7 @@ onMounted(() => {
   font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  color: #ffffff;
+  color: #090f67;
   text-decoration: none;
   display: flex;
   align-items: center;

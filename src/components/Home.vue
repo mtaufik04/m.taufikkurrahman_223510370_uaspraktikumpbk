@@ -1,16 +1,15 @@
 <template>
+  <video src="../assets/vidio.mp4" class="hero" autoplay loop muted>
+  </video>
+  <div class="hero-content">
+    <h1 class="hero-title">Hallo, Welcome To My Website</h1>
+    <p class="hero-subtitle">
+      Disini anda bisa melihat tugas yang telah saya kerjakan dari pertemuan 1 hingga 7 kemudian anda juga bisa mengelola kegiatan anda dengan fitur kami yaitu todo-list, anda juga bisa melihat bagaimana suhu cuaca diberbagai kota dan negara dengan data yang diambil dari openmap dengan menggunakan fitur kami pada bagian weather.
+    </p>
+    <q-btn color="primary" label="lihat selengkapnya" @click="scrollToIntroductionSection" class="hero-btn" />
+  </div>
   <q-page class="home-page">
-    <q-parallax src="../assets/gambar9.jpg" class="hero">
-      <div class="hero-content">
-        <h1 class="hero-title">Hallo, Welcome To My Website</h1>
-        <p class="hero-subtitle">
-          Disini anda bisa melihat tugas yang telah saya kerjakan dari pertemuan 1 hingga 7 kemudian anda juga bisa mengelola kegiatan anda dengan fitur kami yaitu todo-list, anda juga bisa melihat bagaimana suhu cuaca diberbagai kota dan negara dengan data yang diambil dari openmap dengan menggunakan fitur kami pada bagian weather.
-        </p>
-        <q-btn color="primary" label="Jelajahi Sekarang" @click="$router.push('/weather')" class="hero-btn" />
-      </div>
-    </q-parallax>
-
-    <div class="introduction-section q-pa-md">
+    <div ref="introductionSectionRef" class="introduction-section q-pa-md">
       <q-card flat bordered class="q-pa-md text-center introduction-card">
         <q-card-section>
           <h2 class="introduction-title">Kenapa Menggunakan Website ini?</h2>
@@ -39,7 +38,7 @@
           <div class="feature-title">Cek Cuaca</div>
           <p>Periksa cuaca di berbagai kota dan negara dengan fitur weather kami.</p>
         </q-card-section>
-        <q-card-actions align="right">
+        <q-card-actions class="tombol1">
           <q-btn flat label="Cek Cuaca" color="primary" @click="$router.push('/weather')" />
         </q-card-actions>
       </q-card>
@@ -50,7 +49,7 @@
           <div class="feature-title">Todo List</div>
           <p>Anda dapat mengatur kegiatan anda disini dan mulailah untuk menuliskan impian anda disini.</p>
         </q-card-section>
-        <q-card-actions align="right">
+        <q-card-actions class="tombol">
           <q-btn flat label="Mulai Menulis" color="primary" @click="$router.push('/tugas3')" />
         </q-card-actions>
       </q-card>
@@ -61,22 +60,31 @@
           <div class="feature-title">Portofolio</div>
           <p>Anda dapat memeriksa portfolio developer disini.</p>
         </q-card-section>
-        <q-card-actions align="right">
+        <q-card-actions class="tombol3">
           <q-btn flat label="Lihat Portfolio" color="primary" @click="$router.push('/tugas1')" />
         </q-card-actions>
       </q-card>
     </div>
-    
-    <DaftarTugas/>
 
+    <DaftarTugas ref="daftarTugasRef" />
   </q-page>
   <FooterComponent />
 </template>
 
 <script setup>
+import { ref, unref } from 'vue';
 import { useRouter } from 'vue-router';
 import FooterComponent from './FooterComponent.vue';
 import DaftarTugas from './DaftarTugas.vue';
+
+const introductionSectionRef = ref(null);
+
+const scrollToIntroductionSection = () => {
+  const element = unref(introductionSectionRef);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 const router = useRouter();
 </script>
@@ -141,21 +149,36 @@ const router = useRouter();
 }
 
 .hero {
-  height: 2000px;
+  width: 100%;
+  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  background: rgba(0, 0, 0, 0.6);
   overflow: hidden;
   margin-top: -100px;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
 }
 
 .hero-content {
+  position: relative;
   text-align: center;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   animation: fadeIn 1.5s ease-in-out;
+  z-index: 3;
 }
 
 .hero-title {
@@ -166,6 +189,7 @@ const router = useRouter();
   margin-bottom: 1rem;
   animation: slideInFromLeft 1.5s ease-in-out;
   color: #dd8431;
+  margin-top:-400px;
 }
 
 .hero-subtitle {
@@ -198,6 +222,8 @@ const router = useRouter();
   display: flex;
   justify-content: center;
   padding: 2rem 1rem;
+  box-shadow: 5px 5px 50px 5px rgb(212, 3, 35);
+  margin-top: 40px;
 }
 
 .introduction-card {
@@ -205,7 +231,6 @@ const router = useRouter();
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: none;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .introduction-title {
@@ -240,7 +265,7 @@ const router = useRouter();
   overflow: hidden;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 5px 5px rgb(6, 17, 171);
 }
 
 .feature-card:hover {
@@ -264,5 +289,20 @@ const router = useRouter();
   margin: 1rem 0;
   text-align: center;
   color: #42a5f5;
+}
+
+.tombol {
+  margin-left: 150px;
+  margin-top: 40px;
+}
+
+.tombol1 {
+  margin-left: 170px;
+  margin-top: 60px;
+}
+
+.tombol3 {
+  margin-left: 150px;
+  margin-top: 60px;
 }
 </style>

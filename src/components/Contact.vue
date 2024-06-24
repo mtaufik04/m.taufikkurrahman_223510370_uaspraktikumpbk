@@ -48,9 +48,10 @@ const openLink = (url) => {
   color: white;
   font-family: 'Poppins', sans-serif;
   text-align: center;
-  height: 100px;
+  height: 200px;
   width:100%;
   position: fixed;
+  margin-top: -50px;
 }
 
 .contact-header {
