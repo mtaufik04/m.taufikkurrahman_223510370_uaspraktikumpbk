@@ -1,6 +1,5 @@
 <template>
   <q-page class="home-page">
-    <!-- Parallax Hero Section -->
     <q-parallax src="https://images8.alphacoders.com/135/1358769.png" class="hero">
       <div class="hero-content">
         <h1 class="hero-title">Hallo, Welcome To My Website</h1>
@@ -11,7 +10,6 @@
       </div>
     </q-parallax>
 
-    <!-- Introduction Section -->
     <div class="introduction-section q-pa-md">
       <q-card flat bordered class="q-pa-md text-center introduction-card">
         <q-card-section>
@@ -23,7 +21,6 @@
       </q-card>
     </div>
 
-    <!-- Features Section -->
     <div class="features-section row justify-center q-mt-xl q-pa-md">
       <q-card class="feature-card q-mr-md" @click="$router.push('/daftartugas')">
         <q-img src="../assets/gambar3.jpg" class="card-img" />

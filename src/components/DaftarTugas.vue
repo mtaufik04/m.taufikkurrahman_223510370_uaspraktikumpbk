@@ -83,7 +83,7 @@ onMounted(() => {
 <style scoped>
 .daftar-tugas-container {
   position: fixed;
-  top: calc(100% + 10px); /* Position below q-header */
+  top: calc(100% + 10px); 
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
@@ -91,7 +91,7 @@ onMounted(() => {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   overflow: hidden;
-  width: 100%; /* Adjust width as needed */
+  width: 100%; 
   max-height: 400px;
   overflow-y: auto;
   margin-top: -666px;
@@ -103,7 +103,7 @@ onMounted(() => {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center items horizontally */
+  justify-content: center; 
 }
 
 .daftar-tugas-item {
