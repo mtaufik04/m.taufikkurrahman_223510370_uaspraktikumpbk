@@ -56,6 +56,7 @@ const tugasLinks = {
   'Tugas 4': '/tugas4',
   'Tugas 5': '/tugas5',
   'Tugas 6': '/tugas6',
+
 };
 
 const showDaftarTugas = ref(false);
@@ -86,7 +87,7 @@ onMounted(() => {
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  background-color: #1f1f1f;
+  background-color: #595959;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   overflow: hidden;

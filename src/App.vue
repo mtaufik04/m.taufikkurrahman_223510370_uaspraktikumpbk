@@ -33,7 +33,6 @@
         </div>
       </q-toolbar>
     </q-header>
-    <DaftarTugas/>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -42,16 +41,15 @@
 
 <script setup>
 import { ref, onMounted, nextTick } from 'vue';
-import DaftarTugas from './components/DaftarTugas.vue';
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 .blur-navbar {
-  background: rgba(51, 51, 51, 0.3); 
-  backdrop-filter: blur(10px); 
-  -webkit-backdrop-filter: blur(10px); 
+  background: rgba(51, 51, 51, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -90,28 +88,52 @@ import DaftarTugas from './components/DaftarTugas.vue';
   overflow: hidden;
 }
 
-.nav-item::before {
+.nav-item::before,
+.nav-item::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: -100%;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-  transition: left 0.3s ease-in-out;
-  z-index: -1;
+  height: 2px;
+  background: #42a5f5;
+  transition: transform 0.3s ease;
+}
+
+.nav-item::before {
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.nav-item::after {
+  bottom: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.nav-item:hover::before,
+.nav-item:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-item::before {
+  transition-delay: 0.15s;
+}
+
+.nav-item::after {
+  transition-delay: 0.3s;
 }
 
 .nav-item:hover {
-  transform: translateY(-5px) scale(1.03);
+  transform: translateY(-5px) scale(1.05);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-  border-bottom: 3px solid #42a5f5;
   background: rgba(255, 255, 255, 0.1);
 }
 
-.nav-item:hover::before {
-  left: 0;
-  background: linear-gradient(120deg, rgba(66, 165, 245, 0.5), rgba(255, 87, 34, 0.5), rgba(66, 165, 245, 0.5));
+.nav-item:hover::before,
+.nav-item:hover::after {
+  transform: scaleX(1);
 }
 
 .q-item-section {
