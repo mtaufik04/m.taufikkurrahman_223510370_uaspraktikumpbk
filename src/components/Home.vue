@@ -1,6 +1,6 @@
 <template>
   <q-page class="home-page">
-    <q-parallax src="https://images8.alphacoders.com/135/1358769.png" class="hero">
+    <q-parallax src="../assets/gambar9.jpg" class="hero">
       <div class="hero-content">
         <h1 class="hero-title">Hallo, Welcome To My Website</h1>
         <p class="hero-subtitle">
