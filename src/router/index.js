@@ -9,6 +9,8 @@ import Tugas3 from '../components/Tugas3.vue';
 import Tugas4 from '../components/Tugas4.vue';
 import Tugas5 from '../components/Tugas5.vue';
 import Tugas6 from '../components/Tugas6.vue';
+import Tugas7 from '../components/Tugas7.vue';
+
 
 
 const routes = [
@@ -22,7 +24,7 @@ const routes = [
   { path: '/tugas4', component: Tugas4, name: 'Tugas4', props: { link: 'https://mtaufiktugas4prakpbk.netlify.app/' } },
   { path: '/tugas5', component: Tugas5, name: 'Tugas5', props: { link: 'https://mtaufikkurrahman-ladingpage.netlify.app/' } },
   { path: '/tugas6', component: Tugas6, name: 'Tugas6', props: { link: 'https://mtaufikkurrahmantgs6.netlify.app/' } },
-  { path: '/tugas7', name: 'Tugas7' },
+  { path: '/tugas7', component: Tugas7, name: 'Tugas7' },
 ];
 
 const router = createRouter({

@@ -13,26 +13,6 @@
         </router-link>
       </li>
     </ul>
-
-    <q-dialog v-model="dialogTugasTidakAda" persistent class="dialog-custom">
-      <q-card>
-        <q-card-section class="q-pt-none">
-          <q-card-title>
-            Yah, Tugas Tidak Ada
-          </q-card-title>
-        </q-card-section>
-
-        <q-card-section>
-          <q-card-text>
-            Maaf, Tugas pertemuan 7 tidak ada karena tidak ada pemberitahuan untuk mengerjakan tugas tersebut. Mohon maaf atas ketidaknyamanannya. Terima kasih atas pengertian Anda.<br>
-          </q-card-text>
-        </q-card-section>
-
-        <q-card-actions align="right">
-          <q-btn label="Tutup" color="primary" @click="dialogTugasTidakAda = false" />
-        </q-card-actions>
-      </q-card>
-    </q-dialog>
   </div>
 </template>
 
@@ -56,11 +36,12 @@ const tugasLinks = {
   'Tugas 4': '/tugas4',
   'Tugas 5': '/tugas5',
   'Tugas 6': '/tugas6',
+  'Tugas 7': '/tugas7',
+
 
 };
 
 const showDaftarTugas = ref(false);
-const dialogTugasTidakAda = ref(false);
 const tugasTerpilih = ref(null);
 
 const pilihTugas = (tugas) => {
